@@ -1,0 +1,38 @@
+.site-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+
+    .title {
+        font-size: 4rem;
+        margin: 2rem 0 1rem 0;
+    }
+
+    .nav {
+        font-size: 1.5rem;
+    }
+    a {
+        color: rgb(117, 196, 207);
+        text-decoration:none;
+        font-size: 1.5rem;
+        transition: 250ms;
+    }
+
+    a:hover {
+        color: rgb(231, 214, 151);
+        text-decoration:overline;
+        font-size: 1.5rem;
+    }
+
+    .router-window {
+        border: 1px solid grey;
+        margin-top: 2rem;
+        width:80%;
+        height: 70vh;
+    }
+
+
+}
