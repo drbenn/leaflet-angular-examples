@@ -6,13 +6,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BasicComponent } from './basic/basic.component';
 import { HeatComponent } from './heat/heat.component';
+import { MarkersComponent } from './markers/markers.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     BasicComponent,
-    HeatComponent
+    HeatComponent,
+    MarkersComponent
   ],
   imports: [
     BrowserModule,
