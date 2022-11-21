@@ -9,6 +9,13 @@ import * as L from 'leaflet';
  * in tsconfig compiler options add  "strictPropertyInitialization": false,
  */
 
+export interface ActiveMapBounds {
+  top:number,
+  right:number,
+  bottom:number,
+  left:number
+}
+
 @Component({
   selector: 'app-markers',
   templateUrl: './markers.component.html',
@@ -17,8 +24,9 @@ import * as L from 'leaflet';
 export class MarkersComponent implements OnInit {
   @ViewChild( 'map', {static: true}) mapElement: ElementRef;
   _map: L.Map;
+  _activeBounds:any;
 
-
+  
   constructor() { }
 
 
@@ -34,9 +42,27 @@ export class MarkersComponent implements OnInit {
       };
 
     let myMap = L.map(this.mapElement.nativeElement, mapOptions).setView([-33.0,150.7],4.5);
+    let activeBounds = myMap.on('move', function():ActiveMapBounds {
+      const bounds = myMap.getBounds();
+      const newBounds: ActiveMapBounds = {
+        top:bounds.getNorth(),
+        right:bounds.getEast(),
+        bottom:bounds.getSouth(),
+        left:bounds.getWest()
+      }
+      console.log(newBounds);
+      return newBounds;      
+    })
+
+    this._activeBounds = activeBounds;
+    console.log(this._activeBounds);
+    
     this._map = myMap;
 
     this.addMarkers();
+
+    // this.getAndTranslateBounds();
+    
   }
 
   addMarkers(dataPoints?:any){
@@ -77,5 +103,16 @@ export class MarkersComponent implements OnInit {
         }).addTo(this._map)
     })
   }
-  
+
+
+  translateBounds(north:number, east:number, south:number, west:number) {
+    // this._map.getBounds()
+
+    
+  }
+
+
 }
+
+
+
