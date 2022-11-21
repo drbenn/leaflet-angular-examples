@@ -25,7 +25,8 @@ export class MarkersComponent implements OnInit {
     center: L.latLng([61.5318550, 16.042929])
   };
 
-  marker = L.marker([61.5318550, 16.042929]).bindPopup('Angular Leaflet');
+
+
 
 
 
